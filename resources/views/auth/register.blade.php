@@ -1,52 +1,113 @@
-<x-guest-layout>
+@extends('layouts.guest')
+
+@section('content')
+<style>
+    .register-form {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 32px 24px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .register-form label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
+    }
+    .register-form input, .register-form select {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 18px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: #f9fafb;
+        transition: border 0.2s;
+    }
+    .register-form input:focus, .register-form select:focus {
+        border-color: #2563eb;
+        outline: none;
+    }
+    .register-form button {
+        width: 100%;
+        padding: 12px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .register-form button:hover {
+        background: #1d4ed8;
+    }
+    .register-form .link {
+        display: block;
+        text-align: center;
+        margin-top: 18px;
+        color: #2563eb;
+        text-decoration: none;
+    }
+    .register-form .link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="register-form">
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <h2 style="text-align:center; margin-bottom: 24px;">Créer un compte</h2>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <!-- Name -->
+        <label for="name">Nom</label>
+        <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+        @error('name')
+            <div style="color: #dc2626; font-size: 0.95em;">{{ $message }}</div>
+        @enderror
+
+        <!-- Email -->
+        <label for="email">Adresse e-mail</label>
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+        @error('email')
+            <div style="color: #dc2626; font-size: 0.95em;">{{ $message }}</div>
+        @enderror
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <label for="password">Mot de passe</label>
+        <input id="password" type="password" name="password" required autocomplete="new-password">
+        @error('password')
+            <div style="color: #dc2626; font-size: 0.95em;">{{ $message }}</div>
+        @enderror
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <label for="password_confirmation">Confirmer le mot de passe</label>
+        <input id="password_confirmation" type="password" name="password_confirmation" required>
+        @error('password_confirmation')
+            <div style="color: #dc2626; font-size: 0.95em;">{{ $message }}</div>
+        @enderror
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+        <!-- Role -->
+        <label for="role">Rôle</label>
+        <select id="role" name="role" required>
+            <option value="">-- Sélectionner un rôle --</option>
+            <option value="hopital" {{ old('role') == 'hopital' ? 'selected' : '' }}>Hôpital</option>
+            <option value="ministere" {{ old('role') == 'ministere' ? 'selected' : '' }}>Ministère</option>
+            <option value="victime" {{ old('role') == 'victime' ? 'selected' : '' }}>Victime</option>
+            <option value="prison" {{ old('role') == 'prison' ? 'selected' : '' }}>Prison</option>
+        </select>
+        @error('role')
+            <div style="color: #dc2626; font-size: 0.95em;">{{ $message }}</div>
+        @enderror
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+        <button type="submit">S'inscrire</button>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <a class="link" href="{{ route('login') }}">
+            Déjà inscrit ? Se connecter
+        </a>
     </form>
-</x-guest-layout>
+</div>
+@endsection

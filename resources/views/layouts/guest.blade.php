@@ -1,30 +1,58 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name', 'Laravel') }} - Authentification</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+        }
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .auth-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(30, 41, 59, 0.10);
+            padding: 40px 32px 32px 32px;
+            min-width: 340px;
+            max-width: 100vw;
+            margin: 24px 0;
+        }
+        .logo {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        @media (max-width: 480px) {
+            .auth-card {
+                min-width: unset;
+                width: 95vw;
+                padding: 24px 8px;
+            }
+        }
+    </style>
+    @yield('head')
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">
+            <!-- Remplace par ton logo si besoin -->
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 56px;">
+            </a>
         </div>
-    </body>
+        <div class="auth-card">
+            @yield('content')
+        </div>
+    </div>
+</body>
 </html>
