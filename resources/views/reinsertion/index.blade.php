@@ -25,7 +25,6 @@
         --border-radius: 16px;
         --content-max-width: 1400px;
     }
-
     body {
         font-family: 'Inter', sans-serif;
         background: var(--color-bg);
@@ -33,23 +32,19 @@
         line-height: 1.6;
         overflow-x: hidden;
     }
-
     .container-fluid {
         padding: 0.5rem;
         max-width: var(--content-max-width);
         margin: 0 auto;
     }
-
     .row {
         margin-left: 0;
         margin-right: 0;
     }
-
     .col-xl-3, .col-md-6 {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
-
     .page-header {
         background-color: var(--color-white);
         padding: 1rem;
@@ -61,14 +56,12 @@
         margin-bottom: 1rem;
         border-radius: var(--border-radius);
     }
-
     .page-title {
         font-size: 1.25rem;
         font-weight: 600;
         color: var(--primary-color);
         margin: 0;
     }
-
     .stats-card {
         background: var(--color-white);
         border-radius: var(--border-radius);
@@ -79,12 +72,10 @@
         border-left: 4px solid var(--primary-color);
         padding: 1rem;
     }
-
     .stats-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08);
     }
-
     .stats-icon {
         width: 48px;
         height: 48px;
@@ -95,7 +86,6 @@
         font-size: 1.2rem;
         background: var(--color-bg);
     }
-
     .stats-value {
         font-size: 1.75rem;
         font-weight: 600;
@@ -103,7 +93,6 @@
         margin: 0.5rem 0;
         letter-spacing: 0.25px;
     }
-
     .stats-label {
         font-size: 0.95rem;
         color: var(--color-text-light);
@@ -111,7 +100,6 @@
         font-weight: 500;
         letter-spacing: 0.25px;
     }
-
     .filter-card {
         background: var(--color-white);
         border-radius: var(--border-radius);
@@ -120,14 +108,12 @@
         margin-bottom: 1.5rem;
         padding: 1.5rem;
     }
-
     .form-label {
         font-weight: 500;
         color: var(--text-color);
         margin-bottom: 0.5rem;
         font-size: 0.95rem;
     }
-
     .form-select, .form-control {
         border-radius: 10px;
         border: 1px solid #e5e7eb;
@@ -136,12 +122,10 @@
         width: 100%;
         transition: all 0.2s ease;
     }
-
     .form-select:focus, .form-control:focus {
         border-color: var(--color-primary);
         box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
     }
-
     .btn {
         border-radius: 10px;
         font-weight: 600;
@@ -150,18 +134,15 @@
         font-size: 0.95rem;
         letter-spacing: 0.25px;
     }
-
     .btn-primary {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
     }
-
     .btn-primary:hover {
         background-color: var(--color-secondary);
         border-color: var(--color-secondary);
         transform: translateY(-1px);
     }
-
     .table-card {
         background: var(--color-white);
         border-radius: var(--border-radius);
@@ -169,12 +150,10 @@
         box-shadow: var(--card-shadow);
         padding: 1.5rem;
     }
-
     .table {
         margin-bottom: 0;
         width: 100%;
     }
-
     .table th {
         font-weight: 600;
         color: var(--color-text-light);
@@ -184,7 +163,6 @@
         text-transform: uppercase;
         letter-spacing: 0.25px;
     }
-
     .table td {
         padding: 0.75rem;
         vertical-align: middle;
@@ -192,90 +170,49 @@
         color: var(--text-color);
         border-bottom: 1px solid #e5e7eb;
     }
-
     .badge {
         padding: 0.5em 0.75em;
         font-weight: 600;
         border-radius: 8px;
         letter-spacing: 0.25px;
-        font-size: 0.85rem;
     }
-
-    .badge.bg-danger {
-        background-color: #FDEDEC !important;
-        color: var(--color-danger);
-    }
-
-    .badge.bg-warning {
-        background-color: #FEF9E7 !important;
-        color: var(--color-warning);
-    }
-
-    .badge.bg-success {
-        background-color: #EAFAF1 !important;
-        color: var(--color-success);
-    }
-
-    .btn-group .btn {
-        padding: 0.4rem 0.6rem;
-        border-radius: 8px;
-        margin: 0 2px;
-        font-size: 0.85rem;
-    }
-
-    .btn-group .btn:hover {
-        transform: translateY(-1px);
-    }
-
-    .progress {
-        height: 8px;
-        border-radius: 9999px;
-        background-color: var(--color-bg);
-    }
-
-    .progress-bar {
-        border-radius: 9999px;
-    }
-
-    @media (max-width: 768px) {
+    /* Responsive design */
+    @media (max-width: 991px) {
+        .row {
+            flex-direction: column;
+        }
+        .col-xl-3, .col-md-6 {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 1rem;
+        }
         .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .filter-card {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+    @media (max-width: 600px) {
+        .stats-card, .info-card, .table-card {
             padding: 0.75rem;
-            margin-bottom: 1rem;
+            border-radius: 10px;
         }
-
-        .stats-card {
-            margin-bottom: 1rem;
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-        .stats-card .card-body {
-            padding: 1rem;
+        .table {
+            min-width: 600px;
         }
-
-        .stats-icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        .stats-value {
-            font-size: 1.5rem;
-        }
-
-        .stats-label {
-            font-size: 0.9rem;
-        }
-
-        .table th, .table td {
-            padding: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .btn {
+        .btn, .form-control, .form-select {
+            font-size: 1rem;
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .form-label, .form-select, .form-control {
-            font-size: 0.9rem;
         }
     }
 </style>
@@ -418,9 +355,8 @@
 
 <!-- Liste des réinsertions -->
 <div class="table-card">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table">
+    <div class="table-responsive">
+        <table class="table">
                 <thead>
                     <tr>
                         <th>Code Victime</th>
@@ -510,5 +446,4 @@
             </table>
         </div>
     </div>
-</div>
 @endsection 

@@ -270,45 +270,43 @@
         filter: brightness(0) invert(1);
     }
 
-    @media (max-width: 768px) {
+    /* Responsive design */
+    @media (max-width: 991px) {
+        .row {
+            flex-direction: column;
+        }
+        .col-xl-3, .col-md-6 {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 1rem;
+        }
         .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .filter-card {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+    @media (max-width: 600px) {
+        .stats-card, .info-card, .table-card {
             padding: 0.75rem;
-            margin-bottom: 1rem;
+            border-radius: 10px;
         }
-
-        .stats-card {
-            margin-bottom: 1rem;
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-        .stats-card .card-body {
-            padding: 1rem;
+        .table {
+            min-width: 600px;
         }
-
-        .stats-icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        .stats-value {
-            font-size: 1.5rem;
-        }
-
-        .stats-label {
-            font-size: 0.9rem;
-        }
-
-        .table th, .table td {
-            padding: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .btn {
+        .btn, .form-control, .form-select {
+            font-size: 1rem;
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .form-label, .form-select, .form-control {
-            font-size: 0.9rem;
         }
     }
 </style>

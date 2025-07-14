@@ -25,7 +25,6 @@
         --border-radius: 16px;
         --content-max-width: 1400px;
     }
-
     body {
         font-family: 'Inter', sans-serif;
         background: var(--color-bg);
@@ -33,23 +32,19 @@
         line-height: 1.6;
         overflow-x: hidden;
     }
-
     .container-fluid {
         padding: 0.5rem;
         max-width: var(--content-max-width);
         margin: 0 auto;
     }
-
     .row {
         margin-left: 0;
         margin-right: 0;
     }
-
     .col-xl-3, .col-md-6 {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
-
     .page-header {
         background-color: var(--color-white);
         padding: 1rem;
@@ -61,14 +56,12 @@
         margin-bottom: 1rem;
         border-radius: var(--border-radius);
     }
-
     .page-title {
         font-size: 1.25rem;
         font-weight: 600;
         color: var(--primary-color);
         margin: 0;
     }
-
     .info-card {
         background: var(--color-white);
         border-radius: var(--border-radius);
@@ -76,35 +69,29 @@
         box-shadow: var(--card-shadow);
         margin-bottom: 1.5rem;
     }
-
     .info-card .card-header {
         background-color: var(--color-white);
         border-bottom: 1px solid #e5e7eb;
         padding: 1rem 1.5rem;
     }
-
     .info-card .card-title {
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--primary-color);
         margin: 0;
     }
-
     .info-card .card-body {
         padding: 1.5rem;
     }
-
     .info-group {
         background: var(--color-bg);
         padding: 1.25rem;
         border-radius: 12px;
         margin-bottom: 1rem;
     }
-
     .info-group:last-child {
         margin-bottom: 0;
     }
-
     .info-group label {
         display: block;
         font-size: 0.875rem;
@@ -112,14 +99,12 @@
         margin-bottom: 0.5rem;
         font-weight: 500;
     }
-
     .info-group p {
         font-size: 1rem;
         color: var(--text-color);
         margin: 0;
         font-weight: 500;
     }
-
     .badge {
         padding: 0.5em 0.75em;
         font-weight: 600;
@@ -127,27 +112,22 @@
         letter-spacing: 0.25px;
         font-size: 0.85rem;
     }
-
     .badge.bg-danger {
         background-color: #FDEDEC !important;
         color: var(--color-danger);
     }
-
     .badge.bg-warning {
         background-color: #FEF9E7 !important;
         color: var(--color-warning);
     }
-
     .badge.bg-success {
         background-color: #EAFAF1 !important;
         color: var(--color-success);
     }
-
     .badge.bg-info {
         background-color: #EBF5FB !important;
         color: var(--color-info);
     }
-
     .btn {
         border-radius: 10px;
         font-weight: 600;
@@ -156,34 +136,28 @@
         font-size: 0.95rem;
         letter-spacing: 0.25px;
     }
-
     .btn-primary {
         background-color: var(--color-primary);
         border-color: var(--color-primary);
     }
-
     .btn-primary:hover {
         background-color: var(--color-secondary);
         border-color: var(--color-secondary);
         transform: translateY(-1px);
     }
-
     .btn-secondary {
         background-color: var(--color-text-light);
         border-color: var(--color-text-light);
     }
-
     .btn-secondary:hover {
         background-color: var(--secondary-color);
         border-color: var(--secondary-color);
         transform: translateY(-1px);
     }
-
     .timeline {
         position: relative;
         padding-left: 2rem;
     }
-
     .timeline::before {
         content: '';
         position: absolute;
@@ -193,199 +167,48 @@
         width: 2px;
         background: var(--color-bg);
     }
-
     .timeline-item {
         position: relative;
         padding-bottom: 1.5rem;
     }
-
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -2rem;
-        top: 0.25rem;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        background: var(--color-primary);
-        border: 2px solid var(--color-white);
-    }
-
-    .timeline-date {
-        font-size: 0.875rem;
-        color: var(--color-text-light);
-        margin-bottom: 0.25rem;
-    }
-
-    .timeline-content {
-        background: var(--color-white);
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: var(--card-shadow);
-    }
-
-    .document-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .document-item {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        background: var(--color-white);
-        border-radius: 8px;
-        margin-bottom: 0.5rem;
-        box-shadow: var(--card-shadow);
-    }
-
-    .document-item:last-child {
-        margin-bottom: 0;
-    }
-
-    .document-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
-        background: var(--color-bg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        color: var(--color-primary);
-    }
-
-    .document-info {
-        flex: 1;
-    }
-
-    .document-name {
-        font-weight: 500;
-        margin: 0;
-        color: var(--text-color);
-    }
-
-    .document-type {
-        font-size: 0.875rem;
-        color: var(--color-text-light);
-        margin: 0;
-    }
-
-    @media (max-width: 768px) {
-        .page-header {
-            padding: 0.75rem;
+    /* Responsive design */
+    @media (max-width: 991px) {
+        .row {
+            flex-direction: column;
+        }
+        .col-xl-3, .col-md-6 {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 0;
+            padding-right: 0;
             margin-bottom: 1rem;
         }
-
-        .info-card .card-body {
-            padding: 1rem;
+        .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
         }
-
-        .info-group {
-            padding: 1rem;
+        .filter-card {
+            flex-direction: column;
+            gap: 1rem;
         }
-
-        .btn {
+    }
+    @media (max-width: 600px) {
+        .stats-card, .info-card, .table-card {
+            padding: 0.75rem;
+            border-radius: 10px;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .table {
+            min-width: 600px;
+        }
+        .btn, .form-control, .form-select {
+            font-size: 1rem;
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
         }
-    }
-
-    .progress-bar {
-        height: 8px;
-        border-radius: 4px;
-        background-color: var(--color-bg);
-        overflow: hidden;
-    }
-
-    .progress-bar-fill {
-        height: 100%;
-        background-color: var(--color-success);
-        transition: width 0.3s ease;
-    }
-
-    .timeline-item {
-        position: relative;
-        padding-left: 2rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0.5rem;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        background: var(--color-primary);
-        border: 2px solid var(--color-white);
-    }
-
-    .timeline-item::after {
-        content: '';
-        position: absolute;
-        left: 0.5rem;
-        top: 1.5rem;
-        bottom: -1rem;
-        width: 2px;
-        background: var(--color-bg);
-    }
-
-    .timeline-item:last-child::after {
-        display: none;
-    }
-
-    .document-preview {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }
-
-    .evaluation-card {
-        background: var(--color-white);
-        border-radius: var(--border-radius);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: var(--card-shadow);
-    }
-
-    .evaluation-score {
-        font-size: 2rem;
-        font-weight: bold;
-        color: var(--color-primary);
-        text-align: center;
-        margin: 1rem 0;
-    }
-
-    .status-badge {
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-
-    .status-badge.en-cours {
-        background-color: #FEF9E7;
-        color: var(--color-warning);
-    }
-
-    .status-badge.termine {
-        background-color: #EAFAF1;
-        color: var(--color-success);
-    }
-
-    .status-badge.abandonne {
-        background-color: #FDEDEC;
-        color: var(--color-danger);
-    }
-
-    .status-badge.evaluation {
-        background-color: #EBF5FB;
-        color: var(--color-info);
     }
 </style>
 @endpush
