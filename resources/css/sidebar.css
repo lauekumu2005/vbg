@@ -1,0 +1,63 @@
+/* Styles pour la barre latérale */
+.sidebar {
+    @apply fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-white transition-transform duration-300 transform;
+}
+
+.sidebar-header {
+    @apply flex items-center justify-between h-16 px-4 border-b border-gray-800;
+}
+
+.sidebar-nav {
+    @apply mt-5 px-2;
+}
+
+.sidebar-nav-item {
+    @apply group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200;
+}
+
+.sidebar-nav-item:hover {
+    @apply bg-gray-700 text-white;
+}
+
+.sidebar-nav-item.active {
+    @apply bg-gray-800 text-white;
+}
+
+.sidebar-nav-item-icon {
+    @apply mr-3 h-6 w-6;
+}
+
+/* Animation pour le menu mobile */
+@media (max-width: 1024px) {
+    .sidebar {
+        @apply -translate-x-full;
+    }
+
+    .sidebar.open {
+        @apply translate-x-0;
+    }
+}
+
+/* Styles pour les icônes */
+.icon {
+    @apply w-6 h-6;
+}
+
+/* Animation de survol */
+.hover-scale {
+    @apply transition-transform duration-200;
+}
+
+.hover-scale:hover {
+    @apply transform scale-105;
+}
+
+/* Style pour le bouton de déconnexion */
+.logout-button {
+    @apply w-full text-left text-red-400 hover:text-red-300;
+}
+
+/* Style pour les notifications */
+.notification-badge {
+    @apply absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full;
+} 
